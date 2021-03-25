@@ -1,6 +1,18 @@
 <div>
 
     <h1> <%= @user.full_name %> </h1>
-    <%= @user.email %>
+    <h5> <%= @user.email %> </h5>
+
+    <h3> List of Projects </h3>
+    <ul>
+        <% @user.projects.map do |project| %>
+            <li>
+                <h4> Name: <%= project.name %> </h4>
+                <p> Descrption: <%= project.description %> </p>
+            </li>
+        <% end %>
+    </ul>
+
+    <br><%= button_to 'New Project', new_project_path, method: :get %>
 
 </div>

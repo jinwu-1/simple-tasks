@@ -1,0 +1,13 @@
+<div>
+
+    <h1> List of Tasks </h1>
+    <ul>
+        <% @tasks.map do |task| %>
+            <li> Name: <%= task.name %> </li>
+            <li> Status: <%= task.status %> </li>
+            <li> Description: <%= task.description %> </li>
+        <% end %>
+    </ul>
+    
+
+</div>

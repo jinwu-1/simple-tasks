@@ -1,0 +1,17 @@
+<div>
+
+    <h1> Name: <%= @project.name %> </h1>
+    <h2> Description: <%= @project.description %> </h2>
+
+    <h3> List of Tasks </h3>
+    <ul>
+        <% @project.tasks.map do |task| %>
+            <li>
+                <h4> Name: <%= task.name %> </h4>
+                <h5> Status: <%= task.status %> </h5>
+                <p> Descrption: <%= task.description %> </p>
+            </li>
+        <% end %>
+    </ul>
+
+</div>

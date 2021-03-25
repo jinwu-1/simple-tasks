@@ -1,0 +1,11 @@
+<div>
+
+    <h1> List of Projects </h1>
+    <ul>
+        <% @projects.map do |project| %>
+            <li> Name: <%= project.name %> </li>
+            <li> Description: <%= project.description %> </li>
+        <% end %>
+    </ul>
+
+</div>
