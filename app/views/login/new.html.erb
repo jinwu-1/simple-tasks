@@ -1,0 +1,24 @@
+<div id='desc'>
+    <h1>Log In Here</h1>
+    <hr>
+
+    <% if flash[:errors] %>
+        <h2> List of Error(s): </h2> 
+        <% flash[:errors].each do |error| %>
+            <div id='box'><%= error %></div>
+        <% end %>
+        <hr>
+    <% end %>  
+
+    <%= form_tag login_index_path, class: "auth-form" do %>
+        <%= label_tag :email %>:
+        <%= text_field_tag :email %>
+        <br>
+
+        <%= label_tag :password %>:
+        <%= password_field_tag :password %>
+        <br>
+
+        <%= submit_tag "Log In" %>
+    <% end %>
+</div>
