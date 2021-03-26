@@ -1,5 +1,5 @@
 <div>
-    <h1> Create an Project </h1>
+    <h1> Create a Project </h1>
     <hr>
 
     <% if flash[:errors] %>
@@ -18,7 +18,7 @@
         <%= f.text_field :name %><br><br>
 
         <%= f.label :description %>:<br>
-        <%= f.text_field :description %><br><br>
+        <%= f.text_area :description %><br><br>
 
         <%= f.submit %>
         

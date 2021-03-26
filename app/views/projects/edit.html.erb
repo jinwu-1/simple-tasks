@@ -1,0 +1,27 @@
+<div>
+    <h1> Edit Project </h1>
+    <hr>
+
+    <% if flash[:errors] %>
+        <h2> List of Error(s): </h2> 
+        <% flash[:errors].each do |error| %>
+            <div id='box'><%= error %></div>
+        <% end %>
+        <hr>
+    <% end %>
+
+    <%= form_for @project do |f| %>
+
+        <%= f.label :name %>:<br>
+        <%= f.text_field :name %><br><br>
+
+        <%= f.label :description %>:<br>
+        <%= f.text_area :description %><br><br>
+
+        <%= f.submit %>
+
+    <% end %>
+
+    <%= button_to 'Back', project_path(@project), method: :get %>
+    
+</div>
