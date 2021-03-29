@@ -3,5 +3,7 @@
     <h1> Name: <%= @task.name %> </h1>
     <h2> Description: <%= @task.description %> </h2>
     <h2> Status: <%= @task.status %> </h2>
+    <%= button_to 'Edit Task', edit_task_path, method: :get %>
+    <%= button_to 'Back', project_path, method: :get %>
 
 </div>

@@ -7,7 +7,7 @@
     <ul>
         <% @user.projects.map do |project| %>
             <li>
-                <h4> Name: <%= project.name %> </h4>
+                <h4> Name: <%=link_to project.name, project_path(project) %> </h4>
                 <p> Descrption: <%= project.description %> </p>
             </li>
         <% end %>

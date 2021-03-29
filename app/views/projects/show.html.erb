@@ -2,12 +2,15 @@
 
     <h1> Name: <%= @project.name %> </h1>
     <h2> Description: <%= @project.description %> </h2>
+    <%= button_to 'Edit Project', edit_project_path, method: :get %>
+    <%= button_to 'Back', user_path, method: :get %>
+    <br><hr>
 
     <h3> List of Tasks </h3>
     <ul>
         <% @project.tasks.map do |task| %>
             <li>
-                <h4> Name: <%= task.name %> </h4>
+                <h4> Name: <%=link_to task.name, task_path(task) %> </h4>
                 <h5> Status: <%= task.status %> </h5>
                 <p> Descrption: <%= task.description %> </p>
             </li>
