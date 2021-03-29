@@ -8,12 +8,18 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
     end
 
-    def new 
+    def new
         @project = Project.new
     end
 
     def create
         @project = Project.create(project_params)
+        if @project.valid?
+            redirect_to project_path(@project)
+        else
+            flash[:errors] = @project.errors.full_messages
+            redirect_to user_path(@project.user)
+        end
     end
 
     def edit
@@ -27,10 +33,17 @@ class ProjectsController < ApplicationController
         redirect_to project_path(@project)
     end
 
+    def destroy
+        @project = Project.find(params[:id])
+        @user = @project.user
+        @project.destroy
+        redirect_to user_path(@user)
+    end
+
     private
 
     def project_params
-        params.require(:project).permit(:name, :description)
+        params.require(:project).permit(:name, :description, :id)
     end
 
 end

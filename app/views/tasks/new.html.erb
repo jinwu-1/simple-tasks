@@ -12,8 +12,8 @@
         <hr>
     <% end %>
 
-    <%= form_for @project do |f| %>
-
+    <%= form_for @task do |f| %>
+        <%= f.hidden_field :project_id %>
         <%= f.label :name %>:<br>
         <%= f.text_field :name %><br><br>
 

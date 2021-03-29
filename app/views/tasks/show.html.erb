@@ -6,4 +6,6 @@
     <%= button_to 'Edit Task', edit_task_path, method: :get %>
     <%= button_to 'Back', project_path, method: :get %>
 
+    <%= button_to 'Delete', task_path(@task), method: :delete, data: { confirm: 'Are you sure?' } %>
+
 </div>

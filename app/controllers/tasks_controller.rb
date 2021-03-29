@@ -14,6 +14,12 @@ class TasksController < ApplicationController
 
     def create
         @task = Task.create(task_params)
+        if @task.valid?
+            redirect_to task_path(@task)
+        else
+            flash[:errors] = @task.errors.full_messages
+            redirect_to new_task_path
+        end
     end
 
     def edit
@@ -25,6 +31,13 @@ class TasksController < ApplicationController
         @task.update(task_params)
 
         redirect_to task_path(@task)
+    end
+
+    def destroy
+        @task = Task.find(params[:id])
+        @project = @task.project
+        @task.destroy
+        redirect_to project_path(@project)
     end
 
     private
